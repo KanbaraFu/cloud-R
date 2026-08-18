@@ -3,6 +3,7 @@ package com.lezijie.po;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * @author KanbaraFu
@@ -12,7 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-
+@ToString
 public class User {
     private Integer userId; // 用户ID
     private String uname;   // 用户名称

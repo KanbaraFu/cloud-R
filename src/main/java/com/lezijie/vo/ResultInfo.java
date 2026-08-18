@@ -2,6 +2,7 @@ package com.lezijie.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 封装返回结果的类
@@ -12,6 +13,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 public class ResultInfo<T> {
 
     private Integer code;   // 状态码 成功=1，失败=0

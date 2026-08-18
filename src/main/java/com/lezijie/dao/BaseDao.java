@@ -104,6 +104,7 @@ public class BaseDao {
      * @param cls
      * @return
      */
+
     public static List queryRows(String sql, List<Object> params, Class cls) {
         List list = new ArrayList();
         Connection connection = null;
@@ -132,23 +133,24 @@ public class BaseDao {
             // 判断并分析结果集
             while (resultSet.next()) {
                 // 实例化对象
-                Object object = cls.newInstance();
+                Object object = cls.newInstance(); // User
                 // 遍历查询的字段数量，得到数据库中的每一个列名
                 for (int i = 1; i <= fieldNum; i++) {
                     // 得到查询的每一个列名
                     // getColumnLabel()：获取列名或别名
                     // getColumnName()：获取列名
-                    String columnName = resultSetMetaData.getColumnLabel(i); // 如果是tb_user,userId字段
+                    String columnName = resultSetMetaData.getColumnLabel(i); // 如果是tb_user,userId字段 // userId
                     // 通过反射，使用列名得到对应的field对象
-                    Field field = cls.getDeclaredField(columnName);
+                    Field field = cls.getDeclaredField(columnName);// User.java中的userId
                     // 拼接set方法，得到字符串
-                    String setMethod = "set" + columnName.substring(0,1).toUpperCase() + columnName.substring(1);
+                    String setMethod = "set" + columnName.substring(0,1).toUpperCase() + columnName.substring(1); // setUserId
                     // 通过反射，将set方法字符串反射成类中对应的set方法
                     Method method = cls.getDeclaredMethod(setMethod, field.getType());
                     // 得到查询的每一个字段对应的值
                     Object value = resultSet.getObject(columnName);
                     // 通过invoke方法调用set方法
-                    method.invoke(object,value);
+                    method.invoke(object,value); // setUserId()
+
                 }
                 // 将JavaBean设置到集合中
                 list.add(object);
@@ -159,7 +161,6 @@ public class BaseDao {
             // 关闭资源
             DBUtil.close(resultSet, preparedStatement, connection);
         }
-
         return list;
     }
 

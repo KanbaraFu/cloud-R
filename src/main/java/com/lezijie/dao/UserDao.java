@@ -58,4 +58,34 @@ public class UserDao {
         }
         return user;
     }
+
+    /**
+     * 通过昵称与用户ID查询用户对象
+     * @param nick
+     * @param userId
+     * @return
+     */
+    public User queryUserByNickAndUserId(String nick, Integer userId) {
+        String sql = "select * from tb_user where nick = ? and userId != ?";
+        List<Object> params = new ArrayList<>();
+        params.add(nick);
+        params.add(userId);
+        User user = (User) BaseDao.queryRow(sql,params, User.class);
+        return user;
+    }
+
+    /**
+     * 更新用户信息
+     * @param user
+     * @return
+     */
+    public int updateUser(User user) {
+        String sql = "update tb_user set nick = ?, mood = ?, head = ? where userId = ?";
+        List<Object> params = new ArrayList<>();
+        params.add(user.getNick());
+        params.add(user.getMood());
+        params.add(user.getHead());
+        params.add(user.getUserId());
+        return BaseDao.executeUpdate(sql,params);
+    }
 }
