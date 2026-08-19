@@ -135,6 +135,7 @@ public class UserServlet extends HttpServlet {
             Cookie cookie;
             if ("1".equals(rem)) {
                 cookie = new Cookie("user", userName + "-" + userPwd);
+                // user:userName-userPwd
                 cookie.setMaxAge(3*24*60*60);
             } else {
                 // 选择0则表示不勾选"记住我选项"，需要删除cookie

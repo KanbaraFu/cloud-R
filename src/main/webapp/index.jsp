@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav">
                 <li <c:if test="${menu_page=='index'}">class="active"</c:if> ><a href="index"><i class="glyphicon glyphicon-cloud"></i>&nbsp;主&nbsp;&nbsp;页</a></li>
                 <li <c:if test="${menu_page=='note'}">class="active"</c:if> ><a href="note"><i class="glyphicon glyphicon-pencil"></i>&nbsp;发表云记</a></li>
-                <li <c:if test="${menu_page=='type'}">class="active"</c:if> ><a href="type"><i class="glyphicon glyphicon-list"></i>&nbsp;类别管理</a></li>
+                <li <c:if test="${menu_page=='type'}">class="active"</c:if> ><a href="type?actionName=list"><i class="glyphicon glyphicon-list"></i>&nbsp;类别管理</a></li>
                 <li <c:if test="${menu_page=='user'}">class="active"</c:if> ><a href="user?actionName=userCenter"><i class="glyphicon glyphicon-user"></i>&nbsp;个人中心</a>
                 <li <c:if test="${menu_page=='report'}">class="active"</c:if> ><a href="report"><i class="glyphicon glyphicon-signal"></i>&nbsp;数据报表</a></li>
             </ul>
@@ -93,15 +93,15 @@
                 </div>
 
                 <div>
-                    <ul class="nav nav-pills nav-stacked">
+                    <ul id="typeUl" class="nav nav-pills nav-stacked">
 
-                        <li><a href="main?act=searchType&amp;val=5&amp;valStr=test">test <span class="badge">0</span></a></li>
+                        <li id="li_1"><a href="main?act=searchType&amp;val=5&amp;valStr=test"><span id="sp_1">test</span> <span class="badge">0</span></a></li>
 
-                        <li><a href="main?act=searchType&amp;val=3&amp;valStr=%E5%B0%9A%E5%AD%A6%E5%A0%82%E7%AC%94%E8%AE%B0">笔记 <span class="badge">12</span></a></li>
+                        <li id="li_2"><a href="main?act=searchType&amp;val=3&amp;valStr=%E5%B0%9A%E5%AD%A6%E5%A0%82%E7%AC%94%E8%AE%B0"><span id="sp_2">笔记</span> <span class="badge">12</span></a></li>
 
-                        <li><a href="main?act=searchType&amp;val=2&amp;valStr=%E6%8A%80%E6%9C%AF">技术 <span class="badge">5</span></a></li>
+                        <li id="li_3"><a href="main?act=searchType&amp;val=2&amp;valStr=%E6%8A%80%E6%9C%AF"><span id="sp_3">技术</span> <span class="badge">5</span></a></li>
 
-                        <li><a href="main?act=searchType&amp;val=4&amp;valStr=%E8%80%81%E8%A3%B4%E8%AF%AD%E5%BD%95">语录 <span class="badge">9</span></a></li>
+                        <li id="li_7"><a href="main?act=searchType&amp;val=4&amp;valStr=%E8%80%81%E8%A3%B4%E8%AF%AD%E5%BD%95">语录 <span class="badge">9</span></a></li>
 
                     </ul>
                 </div>

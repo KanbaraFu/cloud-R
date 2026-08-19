@@ -32,7 +32,7 @@ function deleteType(typeId){
 		// 如果是，发送ajax请求后台（类型ID）
 		$.ajax({
 			type:"post",
-			url:"typeServlet",
+			url:"type",
 			data:{
 				actionName:"delete",
 				typeId:typeId
@@ -50,7 +50,6 @@ function deleteType(typeId){
 				}
 			}
 		});
-		
 	});
 }
 
@@ -111,12 +110,11 @@ function openUpdateDialog(typeId) {
 	// 2、将当前要修改的tr记录的id和名称，设置到模态框的隐藏域和文本框中
 	// 2.1 通过ID属性值，得到要修改的tr记录
 	var tr = $("#tr_"+typeId);
-	// 2.2 得到tr的具体单元格的值
+	// 2.2 得到tr的具体单元格的值（第二个td下标是1）
 	var typeName = tr.children().eq(1).text();
 	// 2.3 将类型名称赋值给模态框中的文本框、将类型ID赋值给模态框中的隐藏域
 	$("#typename").val(typeName);
 	$("#typeId").val(typeId);
-	
 	// 3、打开模态框
 	$("#myModal").modal("show");
 	
@@ -140,7 +138,8 @@ $("#addBtn").click(function(){
 	// 2、清空文本框和隐藏域的值
 	$("#typeId").val("");
 	$("#typename").val("");
-	
+	// 清空提示信息
+    $("#msg").html("");
 	// 3、打开模态框
 	$("#myModal").modal("show");
 });
@@ -182,7 +181,7 @@ $("#btn_submit").click(function(){
 	// 3、发送ajax请求后台，添加或修改类型记录，回调函数返回resultInfo对象
 	$.ajax({
 		type:"post",
-		url:"typeServlet",
+		url:"type",
 		data:{
 			actionName:"addOrUpdate",
 			typeId:typeId,

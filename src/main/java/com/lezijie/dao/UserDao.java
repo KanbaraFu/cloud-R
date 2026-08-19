@@ -70,8 +70,7 @@ public class UserDao {
         List<Object> params = new ArrayList<>();
         params.add(nick);
         params.add(userId);
-        User user = (User) BaseDao.queryRow(sql,params, User.class);
-        return user;
+        return (User) BaseDao.queryRow(sql,params, User.class);
     }
 
     /**

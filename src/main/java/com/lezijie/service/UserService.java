@@ -102,14 +102,16 @@ public class UserService {
         }
 
         User user = (User) req.getSession().getAttribute("user");
-        // 设置修改的昵称和头像
+        // 设置修改的昵称和心情
         user.setNick(nick);
         user.setMood(mood);
         try {
             Part part = req.getPart("img");
             String header = part.getHeader("Content-Disposition");
+            System.out.println(header);
             // 获取具体的请求头对应的值
             String str = header.substring(header.lastIndexOf("=") + 2);
+            System.out.println(str);
             // 获取上传的文件名
             String fileName = str.substring(0, str.length() - 1);
             if (!StrUtil.isBlank(fileName)) {
