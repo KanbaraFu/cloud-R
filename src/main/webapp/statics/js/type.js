@@ -103,7 +103,7 @@ function deleteDom(typeId) {
 		
  */
 function openUpdateDialog(typeId) {
-	
+	// updateBtn
 	// 1、修改模态框的标题
 	$("#myModalLabel").html("修改类型");
 	
@@ -132,6 +132,7 @@ function openUpdateDialog(typeId) {
  
  */
 $("#addBtn").click(function(){
+    
 	// 1、修改模态框的标题
 	$("#myModalLabel").html("新增类型");
 	

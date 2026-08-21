@@ -25,7 +25,7 @@ import java.util.List;
  */
 @WebServlet("/type")
 public class NoteTypeServlet extends HttpServlet {
-    private NoteTypeService typeService = new NoteTypeService();
+    private final NoteTypeService typeService = new NoteTypeService();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

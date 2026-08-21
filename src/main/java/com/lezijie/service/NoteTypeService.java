@@ -16,11 +16,10 @@ import java.util.List;
  */
 public class NoteTypeService {
 
-    private NoteTypeDao typeDao = new NoteTypeDao();
+    private final NoteTypeDao typeDao = new NoteTypeDao();
 
     public List<NoteType> findTypeList(Integer userId) {
-        List<NoteType> typeList = typeDao.findTypeListByUserId(userId);
-        return typeList;
+        return typeDao.findTypeListByUserId(userId);
     }
 
     /**
